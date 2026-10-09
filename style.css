@@ -1,0 +1,197 @@
+css
+/* ===== Variables : couleurs réutilisées partout ===== */
+:root {
+  --couleur-texte: #1f2933;
+  --couleur-fond: #ffffff;
+  --couleur-fond-carte: #f4f6f8;
+  --couleur-accent: #1d4ed8; /* bleu avec un bon contraste sur fond blanc */
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box; /* la largeur inclut padding et bordure */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+a {
+  color: var(--couleur-accent);
+}
+
+/* Contour visible au clavier : indispensable pour l'accessibilité */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--couleur-accent);
+  outline-offset: 3px;
+}
+
+/* ===== Lien d'évitement : caché, puis visible quand il reçoit le focus ===== */
+.lien-evitement {
+  position: absolute;
+  left: -9999px;
+}
+.lien-evitement:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--couleur-fond);
+  padding: 0.5rem;
+}
+
+/* ===== En-tête ===== */
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  margin: 0;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--couleur-texte);
+}
+
+.menu a:hover {
+  color: var(--couleur-accent);
+}
+
+/* Le bouton menu n'apparaît que sur mobile */
+.menu-bouton {
+  display: none;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  background: none;
+  border: 1px solid var(--couleur-texte);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== Contenu principal ===== */
+main {
+  max-width: 900px; /* limite la largeur pour garder un texte lisible */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 2.5rem 0;
+}
+
+/* ===== Présentation ===== */
+.presentation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.photo {
+  border-radius: 50%; /* rend l'image ronde */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.sous-titre {
+  font-weight: bold;
+  color: var(--couleur-accent);
+}
+
+/* ===== Grille de cartes (compétences et projets) ===== */
+.grille {
+  display: grid;
+  /* autant de colonnes que possible, chacune d'au moins 200px */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.carte {
+  background: var(--couleur-fond-carte);
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.carte h3 {
+  margin-top: 0;
+}
+
+/* ===== Contact ===== */
+.contact {
+  text-align: center;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--couleur-accent);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.bouton:hover {
+  opacity: 0.9;
+}
+
+/* ===== Pied de page ===== */
+.pied {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive : écrans de moins de 600px ===== */
+@media (max-width: 600px) {
+  .menu-bouton {
+    display: block;
+  }
+
+  /* Le menu est caché par défaut sur mobile */
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  /* Classe ajoutée par le JavaScript pour afficher le menu */
+  .menu.ouvert {
+    display: flex;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  /* Photo au-dessus du texte */
+  .presentation {
+    flex-direction: column;
+    text-align: center;
+  }
+}

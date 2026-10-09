@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Encodage et adaptation aux écrans mobiles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camille Martin | Portfolio</title>
+  <meta name="description" content="Portfolio de Camille Martin, étudiante en école de commerce.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Lien d'évitement : permet aux utilisateurs clavier d'aller directement au contenu -->
+  <a href="#contenu" class="lien-evitement">Aller au contenu</a>
+
+  <!-- En-tête avec le menu de navigation -->
+  <header class="entete">
+    <p class="logo">Camille Martin</p>
+
+    <!-- Bouton du menu mobile. aria-expanded indique s'il est ouvert ou fermé -->
+    <button class="menu-bouton" aria-expanded="false" aria-controls="menu">Menu</button>
+
+    <nav aria-label="Navigation principale">
+      <ul id="menu" class="menu">
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu">
+
+    <!-- Section présentation : photo + texte court -->
+    <section id="presentation" class="presentation">
+      <!-- Le texte alternatif (alt) décrit l'image pour les lecteurs d'écran -->
+      <img src="imagecv.jpeg" alt="Portrait de Camille Martin" class="photo" width="180" height="180">
+      <div>
+        <h1>Camille Martin</h1>
+        <p class="sous-titre">Étudiante en 3e année d'école de commerce, spécialisation marketing</p>
+        <p>Je recherche un stage de 6 mois en marketing digital à partir de janvier. J'aime analyser les données, construire des plans d'action concrets et travailler en équipe.</p>
+      </div>
+    </section>
+
+    <!-- Section compétences : une liste de 4 cartes -->
+    <section id="competences">
+      <h2>Compétences</h2>
+      <ul class="grille">
+        <li class="carte">
+          <h3>Marketing digital</h3>
+          <p>Réseaux sociaux, SEO, campagnes emailing.</p>
+        </li>
+        <li class="carte">
+          <h3>Analyse de données</h3>
+          <p>Excel avancé, tableaux croisés dynamiques, Google Analytics.</p>
+        </li>
+        <li class="carte">
+          <h3>Gestion de projet</h3>
+          <p>Planification, suivi des délais, coordination d'équipe.</p>
+        </li>
+        <li class="carte">
+          <h3>Langues</h3>
+          <p>Anglais courant (C1), espagnol intermédiaire (B2).</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section projets : 2 projets présentés en articles -->
+    <section id="projets">
+      <h2>Projets</h2>
+      <div class="grille">
+        <article class="carte">
+          <h3>Lancement d'une marque de cosmétiques</h3>
+          <p>Projet de groupe : étude de marché, positionnement et plan de communication pour une marque fictive. Note obtenue : 17/20.</p>
+        </article>
+        <article class="carte">
+          <h3>Stratégie Instagram pour une association</h3>
+          <p>Création d'un calendrier éditorial sur 3 mois. Résultat : +40 % d'abonnés.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section contact : lien mailto qui ouvre la messagerie -->
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Mon profil vous intéresse ? Écrivez-moi.</p>
+      <a href="mailto:camille.martin@email.com" class="bouton">camille.martin@email.com</a>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <!-- L'année est ajoutée automatiquement par script.js -->
+    <p>© <span id="annee"></span> Enzo PEZET</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
